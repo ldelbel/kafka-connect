@@ -26,5 +26,3 @@ func main() {
 		go kafka2.Produce(msg)
 	}
 }
-
-{"clientId":"1","routeId":"1"}
