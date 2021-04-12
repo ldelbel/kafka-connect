@@ -3,11 +3,10 @@ package main
 import (
 	"fmt"
 	"log"
-
-	// "github.com/codeedu/imersaofsfc2-simulator/application/route"
 	"github.com/codeedu/imersaofsfc2-simulator/infra/kafka"
 	"github.com/joho/godotenv"
 	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
+	kafka2 "github.com/codeedu/imersaofsfc2-simulator/application/kafka"
 )
 
 func init() {
@@ -24,15 +23,8 @@ func main() {
 
 	for msg := range msgChan {
 		fmt.Println(string(msg.Value))
+		go kafka2.Produce(msg)
 	}
-
-
-	// route := route.Route{
-	// 	ID:	"1",
-	// 	ClientID: "1",
-	// }
-
-	// route.LoadPositions()
-	// stringjson, _ := route.ExportJsonPositions()
-	// fmt.Println(stringjson[0])
 }
+
+{"clientId":"1","routeId":"1"}

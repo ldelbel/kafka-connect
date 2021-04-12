@@ -27,6 +27,10 @@ import (
 		Finished bool	`json:"finished"`
 	}
 
+	func NewRoute() *Route {
+		return &Route{}
+	}
+
  func(r *Route) LoadPositions() error {
 	 	if r.ID == "" {
 		 	return errors.New("route id not informed")
